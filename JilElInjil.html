@@ -4,60 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reunion 8 Mars</title>
-    <style>        
-        .center {
-            text-align: center;
-        }
-    </style>
-</head>
-<head>
     <style>
         body {
             background-image: url('back.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .center {
+            text-align: center;
+        }
+        .button {
+            width: 100%;
+            max-width: 250px;
+            height: 100px;
+            background-color: rgb(103, 66, 43);
+            color: white;
+            font-size: 24px;
+            margin: 15px 0;
+            border: none;
+            cursor: pointer;
+        }
+        .button.result {
+            width: 100%;
+            max-width: 250px;
+            height: 75px;
+            background-color: rgb(187, 116, 10);
+            color: white;
+            font-size: 30px;
+            margin: 10px 0;
+            border-radius: 50px;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+        }
+        input[type="number"] {
+            width: 100%;
+            max-width: 200px;
+            height: 75px;
+            text-align: center;
+            font-size: 24px;
+            border: 2px solid black;
+            margin: 5px 0;
+        }
+        progress {
+            width: 100%;
+            max-width: 400px;
+            height: 50px;
+            color: green;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        td {
+            font-size: 24px;
+            color: white;
+            padding: 10px;
+        }
+        @media (min-width: 600px) {
+            .button {
+                font-size: 32px;
+            }
+            .button.result {
+                font-size: 40px;
+            }
+            input[type="number"] {
+                font-size: 32px;
+            }
+            td {
+                font-size: 32px;
+            }
+        }
+        @media (min-width: 900px) {
+            .button {
+                font-size: 40px;
+            }
+            .button.result {
+                font-size: 50px;
+            }
+            input[type="number"] {
+                font-size: 40px;
+            }
+            td {
+                font-size: 50px;
+            }
         }
     </style>
 </head>
-<body> 
-    <div class="center" style="font-size: 50px; color: rgb(62, 43, 43); background-color: rgba(236, 237, 224, 0.652);"> 
+<body>
+    <div class="center" style="font-size: 50px; color: rgb(62, 43, 43); background-color: rgba(236, 237, 224, 0.652);">
         <h1>جيل الإنجيل</h1>
-    </div> 
-
-
-<style>    
-    .button {
-        width: 250px;
-        height: 100px;
-        background-color: rgb(103, 66, 43);
-        color: white;
-        font-size: 40px;
-        margin: 30px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .button.result {
-        width: 250px;
-        height: 75px;
-        background-color: rgb(187, 116, 10);
-        color: white;
-        font-size: 50px;
-        margin: 10px;
-        border-radius: 50px;
-        border: 2px solid white;
-        cursor: pointer;
-    } 
-    .button-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-</style>
-<style> 
-</style>
-    <div class="center"></div>         
+    </div>
+    <div class="center button-container">
         <button class="button" onclick="openLinkAndChangeColor(this,'5eme.html')">الفقرة الخامسة<br>رتب بالتسلسل</button>
         <button class="button" onclick="openLinkAndChangeColor(this,'4eme.html')">الفقرة الرابعة<br>من هو؟</button>
         <button class="button" onclick="openLinkAndChangeColor(this,'3eme.html')">الفقرة الثالثة<br>إملأ الفراغ</button>
@@ -67,133 +124,103 @@
     <div id="buttons-container" class="center">
         <!-- Buttons will be generated here by JavaScript -->
     </div>
-
+    <div class="center-content">
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
+            <input type="number" id="number1" placeholder="Eve">
+            <input type="number" id="number2" placeholder="Adam">
+            <button class="button result" onclick="incrementProgressBar()">Ajouter</button>
+        </div>
+        <div class="center">
+            <progress id="progressBar" value="0" max="100"></progress>
+            <progress id="progressBar2" value="0" max="100"></progress>
+            <table>
+                <tr>
+                    <td>Eve</td>
+                    <td id="progressValue1">0</td>
+                </tr>
+                <tr>
+                    <td>Adam</td>
+                    <td id="progressValue2">0</td>
+                </tr>
+            </table>
+            <button class="button result" onclick="launchConfetti()" style="background-color: green;">Resultat</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script>
         function openLinkAndChangeColor(button, url) {
             button.style.backgroundColor = 'grey';
             window.open(url, '_blank');
         }
-    </script>
-   
-<style>
-    .center-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 50vh;
-    }
-</style>
-<div class="center-content">  
-    <div style="display: flex; justify-content: center; gap: 100px; margin-top: 20px;">
-        <input type="number" id="number1" placeholder="Eve" style="width: 200px; height: 75px; text-align: center; font-size: 40px; border: 2px solid black;">
-        <input type="number" id="number2" placeholder="Adam" style="width: 200px; height: 75px; text-align: center; font-size: 40px;border: 2px solid black;"> 
-        <button class="button result" onclick="incrementProgressBar()">Ajouter</button> 
-    </div> 
 
-     
-    <div class="center">
-        <progress id="progressBar" value="0" max="100" style="width: 400px; height: 120px; color: green; margin: 20px;"></progress>
-        <progress id="progressBar2" value="0" max="100" style="width: 400px; height: 120px; color: green;margin: 20px;"></progress> 
-   
-        
-        <table style="width: 600px; margin-top: 20px; text-align: center; background-color: rgba(0, 0, 0, 0.5);">
-            <tr>
-                <td style="font-size: 50px; color: white;">Eve</td>
-                <td id="progressValue1" style="font-size: 50px; color: rgb(255, 255, 255);">0</td>
-            </tr>
-            <tr>
-                <td style="font-size: 50px; color: white;">Adam</td>
-                <td id="progressValue2" style="font-size: 50px; color: rgb(255, 255, 255);">0</td>
-            </tr> 
-        </table>     
-        <button class="button result" onclick="launchConfetti()" style="background-color: green;">Resultat</button> 
-   
-    </div>
- </div> 
-      
-    <script>
         function incrementProgressBar() {
-            var number1 = parseInt(document.getElementById('number1').value) || 0; 
+            var number1 = parseInt(document.getElementById('number1').value) || 0;
             var progressBar = document.getElementById('progressBar');
             var currentValue = parseInt(progressBar.value);
-            var newValue = currentValue + number1 ;
+            var newValue = currentValue + number1;
             progressBar.value = newValue > 100 ? 100 : newValue;
             document.getElementById('number1').value = '';
-        
+
             var number2 = parseInt(document.getElementById('number2').value) || 0;
             var progressBar2 = document.getElementById('progressBar2');
             var currentValue2 = parseInt(progressBar2.value);
-            var newValue2 = currentValue2 +  number2;
+            var newValue2 = currentValue2 + number2;
             progressBar2.value = newValue2 > 100 ? 100 : newValue2;
             document.getElementById('number2').value = '';
 
             document.getElementById('progressValue1').innerText = newValue;
-            document.getElementById('progressValue2').innerText = newValue2; 
+            document.getElementById('progressValue2').innerText = newValue2;
+        }
+
+        var audio;
+
+        function launchConfetti() {
+            var progressValue1 = parseInt(document.getElementById('progressValue1').innerText);
+            var progressValue2 = parseInt(document.getElementById('progressValue2').innerText);
+            var message = '';
+
+            if (progressValue1 > progressValue2) {
+                message = 'Bravo pour le Eve qui a le plus de score!';
+            } else if (progressValue2 > progressValue1) {
+                message = 'Bravo pour le Adam qui a le plus de score!';
+            } else {
+                message = 'Les deux groupes ont le même score!';
+            }
+
+            var popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            popup.style.color = 'white';
+            popup.style.padding = '40px';
+            popup.style.borderRadius = '10px';
+            popup.style.textAlign = 'center';
+            popup.style.zIndex = '1000';
+            popup.style.fontSize = '30px';
+            popup.innerText = message;
+
+            document.body.appendChild(popup);
+
+            setTimeout(function() {
+                document.body.removeChild(popup);
+            }, 3000);
+
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            } else {
+                audio = new Audio('Congratulations.mp3');
+            }
+            audio.play();
         }
     </script>
-<script>
-   
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
-<script> 
-    var audio;
-
-    function launchConfetti() {
-        var progressValue1 = parseInt(document.getElementById('progressValue1').innerText);
-        var progressValue2 = parseInt(document.getElementById('progressValue2').innerText);
-        var message = '';
-
-       
-         
-        if (progressValue1 > progressValue2) {
-            message = 'Bravo pour le Eve qui a le plus de score!';
-        } else if (progressValue2 > progressValue1) {
-            message = 'Bravo pour le Adam qui a le plus de score!';
-        } else {
-            message = 'Les deux groupes ont le même score!';
-        }
-        
-        var popup = document.createElement('div');
-        popup.style.position = 'fixed';
-        popup.style.top = '50%';
-        popup.style.left = '50%';
-        popup.style.transform = 'translate(-50%, -50%)';
-        popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-        popup.style.color = 'white';
-        popup.style.padding = '40px';
-        popup.style.borderRadius = '10px';
-        popup.style.textAlign = 'center';
-        popup.style.zIndex = '1000';
-        popup.style.fontSize = '30px';
-        popup.innerText = message;
-
-        document.body.appendChild(popup);
-
-        setTimeout(function() {
-            document.body.removeChild(popup);
-        }, 3000);
- 
-
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { y: 0.6 }
-        });
-
-        if (audio) {
-            audio.pause();
-            audio.currentTime = 0;
-        } else {
-            audio = new Audio('Congratulations.mp3');
-        }
-        audio.play();
-    }
- 
-</script>
-
-
 </body>
 </html>
