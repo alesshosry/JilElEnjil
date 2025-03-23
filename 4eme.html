@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفقرة الرابعة</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            color: rgb(103, 66, 43);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        p {
+            font-size: 3em; /* Increased font size */
+        }
+    </style>
+</head>
+<head>
+ 
+<body> 
+
+    <img src="manhouwa.jpg" alt="Da7ekni" style="width: 40%; height: auto; margin-bottom: 100px"> 
+ 
+
+    <audio id="intro" controls src="intro.mp3"></audio>  
+    <script>
+        function playMusic1() {
+            document.getElementById('intro').play();
+        } 
+        function stopMusic1() {
+            document.getElementById('intro').pause();
+            document.getElementById('intro').currentTime = 0;
+        }
+    </script>
+ 
+
+</body>
+</html>

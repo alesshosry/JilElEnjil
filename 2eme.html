@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفقرة الثانية</title>
+    <style>
+        .green {
+            background-color: green;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: rgb(79, 57, 10);
+        }
+        .gray {
+            background-color: gray;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <body style="background-color: rgb(236, 237, 224, 0.652);"></body>         
+    <div style="border: 5px solid rgb(79, 57, 10); padding: 10px; text-align: center;">        
+        <p style="font-size: 25px;">    
+            <div class="center" style="font-size: 30px; color: rgb(79, 57, 10);text-align: center;">         
+            <h1>الفقرة الثانية</h1>
+            </div>      
+        </p>            
+    <img src="jadid.jpeg" alt="Jadid" style="display: block; margin: 0 auto;">    
+    </div>
+
+    <div id="blue-button-container"> 
+        <script>
+           
+                let div = document.createElement('div');
+                div.style.marginBottom = '10px';
+                div.style.border = '1px solid black';
+                div.style.padding = '10px';
+                div.style.textAlign = 'center'; // Center align the content                
+                let groupText = document.createElement('p');
+                groupText.style.fontSize = '25px'; // Increase font size
+                div.style.marginBottom = '5px'; // Decrease margin bottom
+                div.appendChild(groupText);
+                for (let i = 0; i < 8; i++) {
+                    let button = document.createElement('button');
+                    button.className = 'blue';
+                    if (i === 0) {
+                       button.innerText = 'مهنة';     
+                    };
+                    if (i === 1) {
+                       button.innerText = 'شفاء';     
+                    };
+                    if (i === 2) {
+                       button.innerText = 'القيامة';     
+                    };
+                    if (i === 3) {
+                       button.innerText = 'الرسل';     
+                    };
+                    if (i === 4) {
+                       button.innerText = 'الإنجيل';     
+                    };
+                    if (i === 5) {
+                       button.innerText = 'العنصرة';     
+                    };
+                    if (i === 6) {
+                       button.innerText = 'عظات';     
+                    };
+                    if (i === 7) {
+                       button.innerText = 'شهداء';     
+                    };
+                    button.style.width = '200px'; // Increase button width
+                    button.style.height = '100px'; // Increase button height
+                    button.style.fontSize = '50px'; // Increase font size
+                    button.onclick = function() {
+                        this.classList.toggle('blue');
+                        this.classList.toggle('gray');
+                    };
+                    div.appendChild(button);
+                }
+                document.getElementById('blue-button-container').appendChild(div);
+              
+        </script>
+    </div>
+
+    <audio id="intro" controls src="intro.mp3"></audio>  
+    <script>
+        function playMusic1() {
+            document.getElementById('intro').play();
+        } 
+        function stopMusic1() {
+            document.getElementById('intro').pause();
+            document.getElementById('intro').currentTime = 0;
+        }
+    </script>
+</body>
+</html>
