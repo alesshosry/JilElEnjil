@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reunion 8 Mars</title>
     <style>
+        body, h1 {
+            margin: 25px;
+            padding: 0;
+        }
         body {
             background-image: url('back.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
         }
         .center {
             text-align: center;
@@ -24,7 +26,7 @@
             background-color: rgb(103, 66, 43);
             color: white;
             font-size: 24px;
-            margin: 15px 0;
+            margin: 15px 10px;
             border: none;
             cursor: pointer;
         }
@@ -35,7 +37,7 @@
             background-color: rgb(187, 116, 10);
             color: white;
             font-size: 30px;
-            margin: 10px 0;
+            margin: 10px 10px;
             border-radius: 50px;
             border: 2px solid white;
             cursor: pointer;
@@ -46,7 +48,7 @@
             justify-content: center;
         }
         .center-content {
-            display: flex;
+            display: grid;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -62,7 +64,7 @@
             margin: 5px 0;
         }
         progress {
-            width: 100%;
+            width: 48%;
             max-width: 400px;
             height: 50px;
             color: green;
