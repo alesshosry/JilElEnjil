@@ -19,6 +19,35 @@
         p {
             font-size: 3em; /* Increased font size */
         }
+    .main {
+        display: flex;
+        justify-content: space-between; /* Space between the three divs */
+        align-items: flex-start; /* Align items at the top */
+        margin: 20px;
+    }
+
+    .parent {
+        width: 40%; /* Adjust width as needed */
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .child {
+        width: 250px;
+        height: 70px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        border-radius: 5px;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
     </style>
 </head>
 <head>
@@ -27,7 +56,29 @@
     <div class="center" style="font-size: 40px; color: rgb(103, 66, 43);">         
     <h1>رتب بالتسلسل</h1>
     </div>   
-    <img src="tasalsoul.jpg" alt="Da7ekni" style="width: 55%; height: auto;"> 
+    <!--img src="tasalsoul.jpg" alt="Da7ekni" style="width: 55%; height: auto;"--> 
+
+    <div class="main">
+        
+        
+        <div class="parent">
+            <div class="child">مَحْبُوساً فَأَتَيْتُمْ إِلَيَّ</div>
+            
+            <div class="child">لأَنِّي جُعْتُ فَأَطْعَمْتُمُونِي</div>
+        </div>
+        <div class="parent">
+            <div class="child">عُرْيَاناً فَكَسَوْتُمُونِي</div>
+           
+            <div class="child">عَطِشْتُ فَسَقَيْتُمُونِي</div>
+        </div>
+        <div class="parent">
+            <div class="child">كُنْتُ غَرِيباً فَآوَيْتُمُونِي</div>
+            <div class="child">مَرِيضاً فَزُرْتُمُونِي</div>
+        </div>
+
+    </div>
+
+   
  
 
     <audio id="intro" controls src="intro.mp3"></audio>  
